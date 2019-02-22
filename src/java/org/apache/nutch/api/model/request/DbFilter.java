@@ -19,6 +19,7 @@ package org.apache.nutch.api.model.request;
 import java.util.Set;
 
 public class DbFilter {
+  private String crawlId;
   private String batchId;
   private String startKey;
   private String endKey;
@@ -55,6 +56,14 @@ public class DbFilter {
 
   public void setStartKey(String startKey) {
     this.startKey = startKey;
+  }
+
+  public String getCrawlId() {
+    return crawlId;
+  }
+
+  public void setCrawlId(String crawlId) {
+    this.crawlId = crawlId;
   }
 
   public String getBatchId() {

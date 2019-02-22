@@ -49,18 +49,18 @@ public class DbResource extends AbstractResource {
     }
 
     DbQueryResult result = new DbQueryResult();
-    Iterator<Map<String, Object>> iterator = getReader().runQuery(filter);
+    Iterator<Map<String, Object>> iterator = getReader(filter.getCrawlId()).runQuery(filter);
     while (iterator.hasNext()) {
       result.addValue(iterator.next());
     }
     return result;
   }
 
-  private DbReader getReader() {
+  private DbReader getReader(String crawlId) {
     String confId = ConfigResource.DEFAULT;
     synchronized (readers) {
       if (!readers.containsKey(confId)) {
-        readers.put(confId, new DbReader(configManager.get(confId), null));
+        readers.put(confId, new DbReader(configManager.get(confId), crawlId));
       }
       return readers.get(confId);
     }
