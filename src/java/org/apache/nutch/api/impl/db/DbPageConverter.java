@@ -128,7 +128,9 @@ public class DbPageConverter {
   private static Map<String, String> convertToStringsMap(Map<?, ?> map) {
     Map<String, String> res = Maps.newHashMap();
     for (Entry<?, ?> entry : map.entrySet()) {
-      res.put(entry.getKey().toString(), entry.getValue().toString());
+      if (entry.getValue() != null) {
+        res.put(entry.getKey().toString(), entry.getValue().toString());
+      }
     }
     return res;
   }
