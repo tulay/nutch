@@ -62,7 +62,7 @@
       m2compatible="true"
       />
     <ibiblio name="restlet"
-      root="http://maven.restlet.org"
+      root="https://maven.restlet.talend.com"
       pattern="${maven2.pattern.ext}"
       m2compatible="true"
       />
